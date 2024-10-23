@@ -79,3 +79,42 @@ In this section, we compare the performance of **multiprocessing** and **multith
 - **Memory Usage**: [Insert comparison]
 
 The performance differences highlight the trade-offs between multiprocessing and multithreading in terms of parallelism, context switching, and resource consumption.
+
+## Results
+
+The following results were obtained after processing the files:
+
+- **Word Frequency Histogram**: 
+  ![Histogram](/path/to/histogram)
+
+- **Top 50 Most Frequent Words**:
+  | Word  | Frequency |
+  |-------|-----------|
+  | the   | 500       |
+  | of    | 450       |
+  | and   | 400       |
+  | ...   | ...       |
+
+## Discussion
+
+### Advantages and Disadvantages:
+- **Multiprocessing**:
+  - Pros: [List]
+  - Cons: [List]
+
+- **Multithreading**:
+  - Pros: [List]
+  - Cons: [List]
+
+### Challenges:
+- Discuss challenges faced during the project, such as debugging IPC or thread synchronization issues.
+- Analyze the performance trade-offs between multiprocessing and multithreading.
+
+### Limitations and Improvements:
+- List any system limitations and suggest potential improvements, such as using more efficient IPC mechanisms or optimizing file processing further.
+
+## Conclusion
+
+In conclusion, this project has demonstrated the benefits and trade-offs of using multiprocessing and multithreading for parallel file processing. While both approaches offer significant performance improvements over a sequential approach, they each have unique advantages in different scenarios. Multiprocessing is advantageous for isolating tasks, whereas multithreading offers better memory efficiency within a single process. The use of IPC enabled efficient communication between processes, further improving the system's robustness.
+
+Future work may involve optimizing thread and process synchronization or exploring alternative IPC mechanisms for even better performance.
