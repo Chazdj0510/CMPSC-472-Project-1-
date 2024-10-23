@@ -63,9 +63,13 @@ You can download the files from [The Calgary Corpus](https://corpus.canterbury.a
 1. **Running the System:**
    - Clone the repository to your local machine.
    - Download the necessary files from [The Calgary Corpus](https://corpus.canterbury.ac.nz/descriptions/#calgary).
-   - Run the Python script with the following command:
+   - Compile the C program using `gcc`:
      ```bash
-     python3 file_processing_system.py /path/to/files/ directory word_to_count
+     gcc -o file_processing_system file_processing_system.c -lpthread
+     ```
+   - Run the compiled program with the following command:
+     ```bash
+     ./file_processing_system /path/to/files/ directory word_to_count
      ```
 
 2. **Testing:**
