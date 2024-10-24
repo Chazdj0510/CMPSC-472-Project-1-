@@ -187,7 +187,7 @@ The following results were obtained after processing the files:
 
   2. Further optimization of file processing could be explored by implementing dynamic load balancing among threads, ensuring that all threads are utilized effectively and preventing some from being idle while others are overloaded.
 
-  3. Additionally, incorporating advanced profiling tools could provide deeper insights into performance bottlenecks, guiding future optimizations.r.
+  3. Additionally, incorporating advanced profiling tools could provide deeper insights into performance bottlenecks, guiding future optimizations.
 
 ## Conclusion
 
