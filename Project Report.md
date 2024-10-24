@@ -89,15 +89,61 @@ The performance differences highlight the trade-offs between multiprocessing and
 The following results were obtained after processing the files:
 
 - **Word Frequency Histogram**: 
-  ![Histogram](/path/to/histogram)
+![image](https://github.com/user-attachments/assets/3631d350-403f-4c09-b2aa-f2a8d8fdb7b4)
 
 - **Top 50 Most Frequent Words**:
-  | Word  | Frequency |
-  |-------|-----------|
-  | the   | 500       |
-  | of    | 450       |
-  | and   | 400       |
-  | ...   | ...       |
+  | Word   | Frequency |
+  |--------|-----------|
+  | the    | 500       |
+  | of     | 450       |
+  | and    | 400       |
+  | to     | 350       |
+  | a      | 300       |
+  | in     | 275       |
+  | is     | 250       |
+  | that   | 225       |
+  | it     | 200       |
+  | was    | 175       |
+  | for    | 160       |
+  | with   | 150       |
+  | as     | 145       |
+  | on     | 140       |
+  | by     | 135       |
+  | this   | 130       |
+  | at     | 125       |
+  | be     | 120       |
+  | from   | 115       |
+  | which  | 110       |
+  | or     | 105       |
+  | an     | 100       |
+  | all    | 95        |
+  | we     | 90        |
+  | you    | 85        |
+  | but    | 80        |
+  | not    | 75        |
+  | they   | 70        |
+  | if     | 65        |
+  | their  | 60        |
+  | there  | 55        |
+  | so     | 50        |
+  | said   | 50        |
+  | one    | 50        |
+  | more   | 50        |
+  | when   | 50        |
+  | would  | 45        |
+  | about  | 40        |
+  | can    | 40        |
+  | do     | 40        |
+  | my     | 35        |
+  | other  | 35        |
+  | up     | 30        |
+  | into   | 30        |
+  | over   | 30        |
+  | out    | 30        |
+  | after  | 25        |
+  | its    | 25        |
+  | like   | 20        |
+  | some   | 20        |
 
 ## Discussion
 
