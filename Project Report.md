@@ -68,15 +68,19 @@ Proper error handling is crucial for ensuring the system operates smoothly, espe
 
 ## Performance Evaluation
 
-In this section, we compare the performance of **multiprocessing** and **multithreading** by measuring the following metrics:
-1. **Execution Time**: The total time taken to process all files using multiprocessing versus multithreading.
-2. **CPU Usage**: The CPU consumption of both techniques is monitored and compared.
-3. **Memory Usage**: The memory overhead for multiprocessing and multithreading is analyzed.
+The performance evaluation of this project focuses on comparing the execution time, CPU usage, and memory consumption between multiprocessing and multithreading approaches. This was done by measuring the metrics during the execution of both techniques for parallel file processing.
+
+1. **Execution Time**: The time taken to complete the word counting task was slightly better with multiprocessing due to the independent nature of the processes.
+2. **CPU Usage**: The CPU usage was relatively high for both multiprocessing and multithreading, but multiprocessing leveraged multiple CPU cores more effectively.
+3. **Memory Usage**: Multithreading showed better memory efficiency compared to multiprocessing, as threads within the same process share memory, while separate processes have their own memory space.
+
+The following code block was used to measure performance:
+![image](https://github.com/user-attachments/assets/e7a9a8fc-d839-41db-af6b-4e965fb36e0c)
+
 
 ### Performance Results:
-- **Execution Time**: [Insert comparison]
-- **CPU Usage**: [Insert comparison]
-- **Memory Usage**: [Insert comparison]
+![image](https://github.com/user-attachments/assets/a97e6dce-3390-4597-9de2-1bc3ade90e97)
+
 
 The performance differences highlight the trade-offs between multiprocessing and multithreading in terms of parallelism, context switching, and resource consumption.
 
@@ -99,22 +103,54 @@ The following results were obtained after processing the files:
 
 ### Advantages and Disadvantages:
 - **Multiprocessing**:
-  - Pros: [List]
-  - Cons: [List]
+  - Pros: 
+    - Allows full utilization of multiple CPU cores for increased parallelism.
+    - Provides process isolation, reducing the risk of shared resource contention.
+    - Each process can run independently, improving fault tolerance.
+  - Cons:
+    - Higher memory consumption due to separate memory space for each process.
+    - Increased overhead in creating and managing processes.
+    - IPC can introduce latency and complexity in result aggregation.
 
 - **Multithreading**:
-  - Pros: [List]
-  - Cons: [List]
-
+  - Pros:
+    - More efficient memory usage as threads share the same memory space.
+    - Lower overhead in creating threads compared to processes.
+    - Faster communication between threads since they can share data directly.
+  - Cons:
+    - Increased risk of race conditions and data inconsistencies without proper synchronization.
+    - Limited by the Global Interpreter Lock (GIL) in some programming languages (e.g., Python).
+    - Debugging can be more complex due to concurrent execution.
+      
 ### Challenges:
-- Discuss challenges faced during the project, such as debugging IPC or thread synchronization issues.
-- Analyze the performance trade-offs between multiprocessing and multithreading.
+- During the project, several challenges were encountered:
+
+    1. **Debugging IPC**:
+        Issues arose in the initial implementation of IPC, particularly in handling the reading and     writing of data between processes. Ensuring that data was correctly formatted and consistently read from the pipe required careful attention.
+    2. **Thread Synchronization**:
+        Managing access to shared resources in multithreading introduced complexities. Implementing mutexes and condition variables effectively was crucial to avoid race conditions while ensuring that threads could efficiently count words.
 
 ### Limitations and Improvements:
-- List any system limitations and suggest potential improvements, such as using more efficient IPC mechanisms or optimizing file processing further.
+#### Limitations:
+  1. The system is limited in terms of scalability, as the number of processes and threads is capped by available system resources. This could be a bottleneck when processing a larger number of files or extremely large files.
+
+  2. The IPC mechanism used (pipes) could introduce latency, particularly if the data to be transferred is substantial. This might slow down the overall performance.
+
+#### Improvements:
+  1. Future improvements could involve using more efficient IPC mechanisms, such as message queues or shared memory, which may reduce communication overhead and latency.
+
+  2. Further optimization of file processing could be explored by implementing dynamic load balancing among threads, ensuring that all threads are utilized effectively and preventing some from being idle while others are overloaded.
+
+  3. Additionally, incorporating advanced profiling tools could provide deeper insights into performance bottlenecks, guiding future optimizations.r.
 
 ## Conclusion
 
-In conclusion, this project has demonstrated the benefits and trade-offs of using multiprocessing and multithreading for parallel file processing. While both approaches offer significant performance improvements over a sequential approach, they each have unique advantages in different scenarios. Multiprocessing is advantageous for isolating tasks, whereas multithreading offers better memory efficiency within a single process. The use of IPC enabled efficient communication between processes, further improving the system's robustness.
+In this project, multiprocessing and multithreading were used to parallelize file processing. The system successfully counted word frequencies in large text files by employing a hybrid approach of multiprocessing and multithreading. The IPC mechanism ensured efficient communication between child processes and the parent process.
 
-Future work may involve optimizing thread and process synchronization or exploring alternative IPC mechanisms for even better performance.
+Based on the performance metrics, multiprocessing demonstrated better parallelism due to the use of independent processes that can be executed on multiple cores, while multithreading was more memory-efficient as it shared memory space among threads.
+
+### Key Takeaways:
+- Multiprocessing is beneficial for applications where maximum parallelism is needed, but it comes at the cost of higher memory consumption.
+- Multithreading is suitable for applications that require efficient memory usage and do not need full isolation between tasks.
+- IPC mechanisms are crucial for communication in multiprocessing systems, ensuring that results can be efficiently aggregated and utilized by the parent process.
+Future work could explore more complex IPC mechanisms (such as message queues or shared memory) and further optimization of resource usage in both multiprocessing and multithreading environments.
